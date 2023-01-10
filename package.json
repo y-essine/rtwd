@@ -14,9 +14,13 @@
     "daisyui": "^2.46.1",
     "dayjs": "^1.11.7",
     "react": "^18.2.0",
+    "react-countup": "^6.4.0",
     "react-dom": "^18.2.0",
     "react-router-dom": "^6.6.1",
+    "react-scroll-trigger": "^0.6.14",
     "react-textarea-autosize": "^8.4.0",
+    "react-use-draggable-scroll": "^0.4.7",
+    "recharts": "^0.22.5",
     "umi-request": "^1.2.3"
   },
   "devDependencies": {
