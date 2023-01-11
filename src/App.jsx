@@ -6,7 +6,9 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import Settings from "@/views/Settings";
 
 import Dashboard from "@/views/Dashboard";
-import DashboardHome from "@/views/DashboardHome";
+import Home from "@/views/home/Home";
+import Profile from "@/views/profile/Profile";
+import Settings from "@/views/settings/Settings";
 
 function App() {
     return (
@@ -20,12 +22,9 @@ function App() {
                 <Route path="login" element={<h1>Login</h1>} />
                 <Route path="register" element={<h1>Register</h1>} />
                 <Route exact path="/dashboard" element={<Dashboard />}>
-                    <Route path="" element={<DashboardHome />} />
-                    <Route path="profile" element={<h1>DashboardProfile</h1>} />
-                    <Route
-                        path="settings"
-                        element={<h1>DashboardSettings</h1>}
-                    />
+                    <Route path="" element={<Home />} />
+                    <Route path="profile" element={<Profile />} />
+                    <Route path="settings" element={<Settings />} />
                 </Route>
 
                 <Route
