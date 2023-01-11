@@ -16,6 +16,7 @@
         "react": "^18.2.0",
         "react-countup": "^6.4.0",
         "react-dom": "^18.2.0",
+        "react-feather": "^2.0.10",
         "react-router-dom": "^6.6.1",
         "react-textarea-autosize": "^8.4.0",
         "react-use-draggable-scroll": "^0.4.7",
