@@ -50,6 +50,9 @@ const DashboardHome = () => {
         },
     ];
 
+    const ref = useRef();
+    const { events } = useDraggable(ref);
+
     return (
         <div className="py-6">
             <h1 className="px-6 text-3xl font-bold">Dashboard</h1>
@@ -66,7 +69,11 @@ const DashboardHome = () => {
                     </p>
                 </div>
                 <div className="mt-5">
-                    <div className="h-scroller flex gap-5 overflow-x-auto pr-6 cursor-grab">
+                    <div
+                        className="h-scroller flex gap-5 overflow-x-auto pr-6 cursor-grab"
+                        {...events}
+                        ref={ref}
+                    >
                         {cards.map((card, index) => {
                             return (
                                 <div key={index}>
@@ -98,7 +105,7 @@ const DashboardHome = () => {
                 <div>
                     <p className="text-sm font-semibold">Expiring HR Records</p>
                 </div>
-                <div className="flex flex-col lg:flex-row justify-between lg:space-x-5">
+                <div className="flex flex-col lg:flex-row justify-between lg:space-x-6">
                     <div className="w-full lg:w-[60%]">
                         <div className="mt-5">
                             <Card className="bg-white/5 !w-full p-8">
@@ -141,47 +148,6 @@ const DashboardHome = () => {
                                 </p>
                             </Card>
                         </div>
-                    </div>
-                </div>
-            </div>
-            <div className="mt-5 divider px-6"></div>
-            <div className="mt-5 pl-6">
-                <div className="pr-6">
-                    <p className="text-sm font-semibold">
-                        Pending Approvals {""}
-                        <a
-                            href="#"
-                            className="text-emerald-500 cursor-pointer hover:underline"
-                        >
-                            Assigned to me
-                        </a>
-                    </p>
-                </div>
-                <div className="mt-5">
-                    <div className="h-scroller flex gap-5 overflow-x-auto pr-6 cursor-grab">
-                        {cards.map((card, index) => {
-                            return (
-                                <div key={index}>
-                                    <Card className={clsx(card.color)} w>
-                                        <h1 className="font-bold block">
-                                            {card.title}
-                                        </h1>
-                                        <div className="mt-3">
-                                            <span className="text-[3rem] font-extrabold">
-                                                <CountUp
-                                                    end={card.value}
-                                                    duration={2}
-                                                    delay={0}
-                                                    seperator={"x"}
-                                                    useEasing
-                                                    enableScrollSpy
-                                                />
-                                            </span>
-                                        </div>
-                                    </Card>
-                                </div>
-                            );
-                        })}
                     </div>
                 </div>
             </div>

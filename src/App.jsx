@@ -5,8 +5,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import Explore from "@/views/Explore";
 // import Settings from "@/views/Settings";
 
-import Dashboard from "@/views/back-office/Dashboard";
-import DashboardHome from "@/views/back-office/DashboardHome";
+import Dashboard from "@/views/Dashboard";
+import DashboardHome from "@/views/DashboardHome";
 
 function App() {
     return (

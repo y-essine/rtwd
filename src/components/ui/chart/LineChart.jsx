@@ -1,5 +1,11 @@
 import { useState } from "react";
-import { LineChart, Line, Tooltip, ResponsiveContainer } from "recharts";
+import {
+    LineChart,
+    Line,
+    Tooltip,
+    ResponsiveContainer,
+    Legend,
+} from "recharts";
 
 const Chart = () => {
     const data = [
@@ -43,6 +49,7 @@ const Chart = () => {
                     strokeWidth={5}
                 />
                 <Tooltip />
+                <Legend iconType="cricle" />
             </LineChart>
         </ResponsiveContainer>
     );

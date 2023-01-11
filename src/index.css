@@ -5,7 +5,9 @@
 :root {
     font-family: "Inter", sans-serif;
     @apply bg-primary text-primary-t;
-    /* @apply h-screen w-screen; */
+}
+
+body {
     overflow-y: auto;
 }
 
@@ -26,7 +28,7 @@ p {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: #171717;
+    /* background: #171717; */
 }
 
 /* Handle */
