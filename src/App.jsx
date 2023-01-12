@@ -9,6 +9,8 @@ import Dashboard from "@/views/Dashboard";
 import Home from "@/views/home/Home";
 import Profile from "@/views/profile/Profile";
 import Settings from "@/views/settings/Settings";
+import Users from "@/views/users/Users";
+import Products from "@/views/products/Products";
 
 function App() {
     return (
@@ -25,6 +27,8 @@ function App() {
                     <Route path="" element={<Home />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="settings" element={<Settings />} />
+                    <Route path="users" element={<Users />} />
+                    <Route path="products" element={<Products />} />
                 </Route>
 
                 <Route

@@ -1,0 +1,10 @@
+{
+    "recommendations": [
+        "dsznajder.es7-react-js-snippets",
+        "esbenp.prettier-vscode",
+        "bradlc.vscode-tailwindcss",
+        "burkeholland.simple-react-snippets",
+        "formulahendry.auto-close-tag",
+        "formulahendry.auto-rename-tag"
+    ]
+}

@@ -1,0 +1,8 @@
+{
+    // auto format on save
+    "editor.formatOnSave": true,
+    // default formatter prettier
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    // 4 spaces for indentation prettier
+    "prettier.tabWidth": 4
+}
