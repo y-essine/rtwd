@@ -1,20 +1,27 @@
+import { useRef } from "react";
 import { Search } from "react-feather";
-import clsx from "clsx";
-import { useState } from "react";
 
 const SearchBar = () => {
-    const [isActive, setActive] = useState(false);
-    const [isHovered, setHovered] = useState(false);
+    const inputRef = useRef();
+
+    const handleFocus = () => {
+        inputRef.current.focus();
+    };
 
     return (
         <div
-            className={clsx(
-                "cursor-pointer py-4 hover:px-4 hover:w-18 hover:bg-zinc-800 rounded-md duration-200",
-                isActive && ""
-            )}
-            onClick={() => setActive(true)}
+            className="relative bg-secondary rounded-md cursor-pointer pr-3"
+            onClick={() => handleFocus()}
         >
-            <Search size={20} />
+            <div className="absolute py-3 px-4 text-darker-t">
+                <Search />
+            </div>
+            <input
+                type="text"
+                placeholder="Search..."
+                className="py-3 pr-11 bg-transparent rounded-md w-0 opacity-0 focus:opacity-100 focus:pr-0 focus:pl-14 cursor-pointer focus:w-96 duration-200 outline-none"
+                ref={inputRef}
+            />
         </div>
     );
 };

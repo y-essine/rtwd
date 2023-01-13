@@ -33,7 +33,8 @@ p {
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-    background: rgb(239 68 68 / 0.5);
+    // background: rgb(239 68 68 / 0.5);
+    @apply bg-indigo-500/50;
     border-radius: 10px;
 }
 
@@ -44,4 +45,34 @@ p {
 
 ::-webkit-scrollbar-corner {
     background: #171717;
+}
+
+input,
+textarea {
+    &::placeholder {
+        @apply text-darker-t;
+        opacity: 0.5;
+    }
+    @apply bg-primary text-primary-t font-medium;
+}
+
+.table {
+    th,
+    td {
+        @apply bg-primary text-primary-t;
+    }
+
+    thead,
+    tfoot {
+        @apply border-white/5 text-darker-t;
+        th {
+            @apply text-darker-t;
+        }
+    }
+    thead {
+        @apply border-b-2;
+    }
+    tfoot {
+        @apply border-t-2;
+    }
 }

@@ -27,7 +27,7 @@
             "    )",
             "}",
             "",
-            "export default ${1:componentName}"
+            "export default ${1:componentName};"
         ],
         "description": "Creates a 'const component = () => {}' react component"
     }
