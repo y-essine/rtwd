@@ -1,15 +1,16 @@
 import clsx from "clsx";
 
-const Avatar = ({ className, size, src, title }) => {
+const Avatar = ({ className, size, src, title, hover }) => {
     return (
         <div
             className={clsx(
-                "mask mask-squircle bg-secondary cursor-pointer",
-                className
+                "cursor-pointer",
+                className,
+                hover && "hover:drop-shadow-md hover:drop-shadow-accent"
             )}
         >
             <img
-                className="w-full h-full hover:scale-110"
+                className="mask mask-squircle w-full h-full"
                 src={src || "/git.jpg"}
                 alt={title || "user" + " avatar"}
             ></img>

@@ -1,3 +1,5 @@
+import { useEffect, useRef, useState } from "react";
+
 const UsersList = () => {
     const users = [
         {
@@ -29,15 +31,42 @@ const UsersList = () => {
         },
     ];
 
+    const [isAllChecked, setAllChecked] = useState(false);
+
+    const allCheckedRef = useRef();
+
+    const selectAll = () => {
+        const checked = allCheckedRef.current.checked;
+        setAllChecked(checked);
+    };
+
+    useEffect(() => {
+        const mycheckboxes = document.querySelectorAll(".checkbox-select");
+        if (!isAllChecked) {
+            mycheckboxes.forEach((c) => {
+                c.checked = false;
+            });
+        } else {
+            mycheckboxes.forEach((c) => {
+                c.checked = true;
+            });
+        }
+    }, [isAllChecked]);
+
     return (
-        <div class="overflow-x-auto w-full overflow-hidden">
-            <table class="table w-full">
+        <div className="overflow-x-auto w-full overflow-hidden">
+            <table className="table w-full">
                 {/* <!-- head --> */}
                 <thead>
                     <tr>
                         <th>
                             <label>
-                                <input type="checkbox" class="checkbox" />
+                                <input
+                                    ref={allCheckedRef}
+                                    type="checkbox"
+                                    className="checkbox"
+                                    onChange={() => selectAll()}
+                                />
                             </label>
                         </th>
                         <th>Name</th>
@@ -48,17 +77,21 @@ const UsersList = () => {
                 </thead>
                 <tbody>
                     {/* <!-- row 1 --> */}
-                    {users.map((u) => (
-                        <tr>
+                    {users.map((u, index) => (
+                        <tr key={index}>
                             <th>
                                 <label>
-                                    <input type="checkbox" class="checkbox" />
+                                    <input
+                                        type="checkbox"
+                                        className="checkbox checkbox-select"
+                                        id={"checkbox-" + u.id}
+                                    />
                                 </label>
                             </th>
                             <td>
-                                <div class="flex items-center space-x-3">
-                                    <div class="avatar cursor-pointer">
-                                        <div class="mask mask-squircle w-12 h-12">
+                                <div className="flex items-center space-x-3">
+                                    <div className="avatar cursor-pointer">
+                                        <div className="mask mask-squircle w-12 h-12">
                                             <img
                                                 src={u.avatar}
                                                 alt="user avatar"
@@ -67,8 +100,10 @@ const UsersList = () => {
                                         </div>
                                     </div>
                                     <div>
-                                        <div class="font-bold">{u.name}</div>
-                                        <div class="text-sm opacity-50">
+                                        <div className="font-bold">
+                                            {u.name}
+                                        </div>
+                                        <div className="text-sm opacity-50">
                                             {u.country}
                                         </div>
                                     </div>
@@ -77,7 +112,7 @@ const UsersList = () => {
                             <td>
                                 <span className="text-sm">{u.job}</span>
                                 <br />
-                                <div class="badge bg-indigo-500/50 badge-sm p-3 mt-2">
+                                <div className="badge bg-indigo-500/50 badge-sm p-3 mt-2">
                                     <span className="text-primary-t">
                                         {u.jobTitle}
                                     </span>
@@ -85,7 +120,7 @@ const UsersList = () => {
                             </td>
                             <td>{u.color}</td>
                             <th>
-                                <button class="btn btn-ghost btn-xs">
+                                <button className="btn btn-ghost btn-xs">
                                     details
                                 </button>
                             </th>

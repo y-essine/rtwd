@@ -9,7 +9,7 @@ const CardsList = () => {
             title: "Products sold",
             value: "1200",
             icon: "shopping-bag",
-            color: "bg-purple-500",
+            color: "bg-purple-700",
         },
         {
             title: "Pending Approvals",
