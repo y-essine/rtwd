@@ -10,7 +10,7 @@ const Avatar = ({ className, size, src, title }) => {
         >
             <img
                 className="w-full h-full rounded-full hover:scale-110"
-                src={src || "/public/git.jpg"}
+                src={src || "/git.jpg"}
                 alt={title || "user" + " avatar"}
             ></img>
         </div>
