@@ -1,0 +1,44 @@
+@keyframes rotate {
+    0% {
+        transform: rotate(0deg);
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: rotate(90deg);
+        transform: translate(20%, 20%);
+    }
+    50% {
+        transform: rotate(180deg);
+        transform: translate(-20%, 20%);
+    }
+    100% {
+        transform: rotate(360deg);
+        transform: translate(30%, -40%);
+    }
+}
+.bg-gradient-wrap {
+    transition: all 0.25s ease-out;
+    .bg-gradient {
+        opacity: 0.3;
+        --size: 250px;
+        --speed: 10s;
+        --easing: cubic-bezier(0.8, 0.2, 0.2, 0.8);
+
+        width: var(--size);
+        height: var(--size);
+        filter: blur(calc(var(--size) / 2));
+        background-image: linear-gradient(
+            hsl(184deg 95% 49%),
+            hsl(280deg 89% 30%)
+        );
+        animation: rotate var(--speed) var(--easing) alternate infinite;
+        border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%;
+        /* This is just to transition when you change the viewport size. */
+    }
+}
+
+@media (min-width: 720px) {
+    .gradient {
+        --size: 500px;
+    }
+}

@@ -2,6 +2,7 @@ import { Suspense, lazy } from "react";
 // lazy CardsList
 const CardsList = lazy(() => import("@/components/home/cards/CardsList"));
 const SalesCharts = lazy(() => import("@/components/home/sales/SalesCharts"));
+import GradientBackground from "@/components/layouts/background/GradientBackground";
 import Card from "@/components/ui/card/Card";
 // import CardsList from "@/components/home/cards/CardsList";
 // import SalesCharts from "@/components/home/sales/SalesCharts";
@@ -10,6 +11,7 @@ import LoadingSpinner from "@/components/ui/loading/LoadingSpinner";
 const DashboardHome = () => {
     return (
         <div className="py-6">
+            <GradientBackground />
             <h1 className="px-6 text-3xl font-bold">Dashboard</h1>
             <div className="mt-10 pl-6">
                 <div className="pr-6">
@@ -47,7 +49,7 @@ const DashboardHome = () => {
                         </p>
                     </div>
                     <div className="mt-5">
-                        <Card className="bg-white/5 !w-full p-8">
+                        <Card className="bg-secondary !w-full p-8">
                             <h1 className="text-2xl font-semibold">Sales</h1>
                             <p className="mt-3 text-sm font-semibold">
                                 Sales by Category (Last 30 days)

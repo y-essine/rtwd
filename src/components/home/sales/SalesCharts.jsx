@@ -7,7 +7,7 @@ const SalesCharts = () => {
         <div className="flex flex-col lg:flex-row justify-between lg:space-x-6">
             <div className="w-full lg:w-[60%]">
                 <div className="mt-5">
-                    <Card className="bg-[#212222] !w-full p-8">
+                    <Card className="bg-secondary !w-full p-8">
                         <h1 className="text-2xl font-semibold">Sales</h1>
                         <p className="mt-3 text-sm font-semibold">
                             Sales by Category (Last 30 days)
@@ -30,7 +30,7 @@ const SalesCharts = () => {
             {/* <div className="w-1 hidden lg:visible"></div> */}
             <div className="w-full lg:w-[40%] lg:mt-0 mt-5 lg:mr-0 mr-5">
                 <div className="mt-5">
-                    <Card className="bg-white/5 !w-full p-8">
+                    <Card className="bg-secondary !w-full p-8">
                         <h1 className="text-2xl font-semibold">Profit</h1>
                         <p className="mt-3 text-sm font-semibold">
                             Profit by margin

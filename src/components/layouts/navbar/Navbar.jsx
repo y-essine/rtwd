@@ -27,8 +27,63 @@ const Navbar = () => {
             <div>
                 <SearchBar isScrolled={isScrolled} />
             </div>
-            <div>
-                <Avatar className="h-12 w-12" hover />
+            <div className="relative inline-block text-left">
+                <button
+                    id="menu-button"
+                    type="button"
+                    aria-expanded="true"
+                    aria-haspopup="true"
+                >
+                    <Avatar className="h-12 w-12" hover />
+                </button>
+                {/* <div
+                    className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-secondary shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"
+                    role="menu"
+                    aria-orientation="vertical"
+                    aria-labelledby="menu-button"
+                    tabIndex="-1"
+                >
+                    <div className="py-1" role="none">
+                        <a
+                            href="#"
+                            className="hover:bg-gray-200/5 block px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabIndex="-1"
+                            id="menu-item-0"
+                        >
+                            Account settings
+                        </a>
+                        <a
+                            href="#"
+                            className="hover:bg-gray-200/5 block px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabIndex="-1"
+                            id="menu-item-1"
+                        >
+                            Support
+                        </a>
+                        <a
+                            href="#"
+                            className="hover:bg-gray-200/5 block px-4 py-2 text-sm"
+                            role="menuitem"
+                            tabIndex="-1"
+                            id="menu-item-2"
+                        >
+                            License
+                        </a>
+                        <form method="POST" action="#" role="none">
+                            <button
+                                type="submit"
+                                className="hover:bg-gray-200/5 block w-full px-4 py-2 text-left text-sm"
+                                role="menuitem"
+                                tabIndex="-1"
+                                id="menu-item-3"
+                            >
+                                Sign out
+                            </button>
+                        </form>
+                    </div>
+                </div> */}
             </div>
         </div>
     );

@@ -15,33 +15,33 @@ const CardsList = () => {
             title: "Pending Approvals",
             value: "3000",
             icon: "shopping-bag",
-            color: "bg-emerald-500",
+            color: "bg-emerald-600",
         },
 
         {
             title: "Tickets Open",
             value: "36",
             icon: "ticket",
-            color: "bg-red-500",
+            color: "bg-red-600",
         },
         {
             title: "Products sold",
             value: "1200",
             icon: "shopping-bag",
-            color: "bg-rose-500",
+            color: "bg-rose-600",
         },
 
         {
             title: "Sales Today",
             value: "546",
             icon: "price-tag",
-            color: "bg-orange-500",
+            color: "bg-orange-600",
         },
         {
             title: "Pending Approvals",
             value: "3000",
             icon: "shopping-bag",
-            color: "bg-emerald-500",
+            color: "bg-emerald-600",
         },
     ];
 
