@@ -1,6 +1,15 @@
+import useStore from "@/store/users";
+
 const UserRow = ({ user }) => {
     const handleChange = (e) => {
         const checked = e.target.checked;
+    };
+
+    const removeUser = useStore((state) => state.removeUser);
+
+    const deleteUser = (user) => {
+        removeUser(user.id);
+        // console.log(user.id);
     };
 
     return (
@@ -41,7 +50,12 @@ const UserRow = ({ user }) => {
             </td>
             <td>{user.color}</td>
             <th>
-                <button className="btn btn-ghost btn-xs">details</button>
+                <button
+                    className="btn btn-ghost btn-xs"
+                    onClick={() => deleteUser(user)}
+                >
+                    details
+                </button>
             </th>
         </tr>
     );

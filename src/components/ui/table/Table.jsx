@@ -1,10 +1,14 @@
-import { useRef, useState, useEffect } from "react";
+import { useRef, useState, useEffect, useMemo } from "react";
 import TableHeader from "./TableHeader";
 import "./table.less";
 import UserRow from "./users/UserRow";
+import TableSearch from "./TableSearch";
+import AddButton from "./actions/AddButton";
 
 const Table = ({ headers, items, users }) => {
     const [isAllChecked, setAllChecked] = useState(false);
+    const [search, setSearch] = useState("");
+
     let allCheckedRef = useRef();
 
     const selectAll = (ref) => {
@@ -13,7 +17,7 @@ const Table = ({ headers, items, users }) => {
         setAllChecked(checked);
     };
 
-    useEffect(() => {
+    useMemo(() => {
         const mycheckboxes = document.querySelectorAll(".checkbox-select");
         if (!isAllChecked) {
             mycheckboxes.forEach((c) => {
@@ -33,33 +37,57 @@ const Table = ({ headers, items, users }) => {
         // }
     };
 
+    const handleSearch = (value) => {
+        setSearch(value);
+    };
+
+    const getItems = () => {
+        if (!search.trim()) return items;
+
+        let filtered = items.filter((u) => {
+            return Object.keys(u).some((key) => {
+                if (typeof u[key] === "string") {
+                    return u[key].toLowerCase().includes(search);
+                }
+                return false;
+            });
+        });
+        return filtered;
+    };
+
     return (
-        <div className="overflow-x-auto w-full overflow-hidden">
-            <table className="table w-full">
-                {/* <!-- head --> */}
-                <TableHeader
-                    header
-                    headers={headers}
-                    handleCheckbox={selectAll}
-                />
-                <tbody>
-                    {/* <!-- row 1 --> */}
-                    {items.map(
-                        (item, index) =>
-                            users && <UserRow key={index} user={item} />
-                    )}
-                </tbody>
-                {/* <!-- foot --> */}
-                <tfoot>
-                    <tr>
-                        <th></th>
-                        {headers.map((h, index) => (
-                            <th key={index}>{h}</th>
-                        ))}
-                        <th></th>
-                    </tr>
-                </tfoot>
-            </table>
+        <div>
+            <div className="flex justify-between items-center">
+                <TableSearch placeholder="Search..." onSearch={handleSearch} />
+                <AddButton />
+            </div>
+            <div className="overflow-x-auto w-full overflow-hidden">
+                <table className="table w-full">
+                    {/* <!-- head --> */}
+                    <TableHeader
+                        header
+                        headers={headers}
+                        handleCheckbox={selectAll}
+                    />
+                    <tbody>
+                        {/* <!-- row 1 --> */}
+                        {getItems().map(
+                            (item, index) =>
+                                users && <UserRow key={index} user={item} />
+                        )}
+                    </tbody>
+                    {/* <!-- foot --> */}
+                    <tfoot>
+                        <tr>
+                            <th></th>
+                            {headers.map((h, index) => (
+                                <th key={index}>{h}</th>
+                            ))}
+                            <th></th>
+                        </tr>
+                    </tfoot>
+                </table>
+            </div>
         </div>
     );
 };
