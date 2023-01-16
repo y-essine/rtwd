@@ -27,7 +27,7 @@ const Navbar = () => {
             <div>
                 <SearchBar isScrolled={isScrolled} />
             </div>
-            <div className="relative inline-block text-left">
+            <div className="relative flex items-center text-left">
                 <button
                     id="menu-button"
                     type="button"

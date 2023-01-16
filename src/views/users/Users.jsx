@@ -1,15 +1,34 @@
-import { Suspense } from "react";
+import { Suspense, lazy } from "react";
+import { useEffect } from "react";
+import useStore from "@/store/users";
 import LoadingSpinner from "@/components/ui/loading/LoadingSpinner";
-import UsersList from "@/components/users/UsersList";
+
+const UsersList = lazy(() => import("@/components/users/UsersList"));
 
 const Users = () => {
+    const users = useStore((state) => state.users);
+    const isLoading = useStore((state) => state.isLoading);
+    const fetchUsers = useStore((state) => state.fetchUsers);
+    const clearUsers = useStore((state) => state.clearUsers);
+
+    useEffect(() => {
+        fetchUsers();
+        return () => {
+            clearUsers();
+        };
+    }, []);
+
     return (
         <div className="p-6">
             <h1 className="text-3xl font-bold">Users</h1>
             <div className="pt-6 w-full">
-                <Suspense fallback={<LoadingSpinner />}>
-                    <UsersList />
-                </Suspense>
+                {isLoading ? (
+                    <LoadingSpinner />
+                ) : (
+                    <Suspense fallback={<LoadingSpinner />}>
+                        <UsersList users={users} />
+                    </Suspense>
+                )}
             </div>
         </div>
     );

@@ -24,11 +24,11 @@ const SidebarItem = ({ title, path, icon }) => {
         <Link
             to={"/dashboard" + path}
             className={clsx(
-                "flex justify-center lg:justify-start lg:pl-8 py-4 hover:bg-secondary/50 cursor-pointer rounded-md select-none duration-200",
+                "flex justify-center lg:justify-start lg:pl-8 py-3 xs:py-4 hover:bg-secondary/50 cursor-pointer rounded-md select-none duration-200",
                 isActive && "!bg-secondary"
             )}
         >
-            {icon}
+            <div className="px-4 xs:px-0">{icon}</div>
             <div className="ml-3 text-xl font-bold hidden lg:block">
                 {title}
             </div>

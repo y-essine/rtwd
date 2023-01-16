@@ -1,11 +1,8 @@
 import { Suspense, lazy } from "react";
-// lazy CardsList
 const CardsList = lazy(() => import("@/components/home/cards/CardsList"));
 const SalesCharts = lazy(() => import("@/components/home/sales/SalesCharts"));
 import GradientBackground from "@/components/layouts/background/GradientBackground";
 import Card from "@/components/ui/card/Card";
-// import CardsList from "@/components/home/cards/CardsList";
-// import SalesCharts from "@/components/home/sales/SalesCharts";
 import LoadingSpinner from "@/components/ui/loading/LoadingSpinner";
 
 const DashboardHome = () => {

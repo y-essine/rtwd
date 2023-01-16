@@ -1,6 +1,9 @@
+import { lazy } from "react";
+
 import Card from "@/components/ui/card/Card";
-import LineChart from "@/components/ui/chart/LineChart";
-import PieChart from "@/components/ui/chart/PieChart";
+
+const LineChart = lazy(() => import("@/components/ui/chart/LineChart"));
+const PieChart = lazy(() => import("@/components/ui/chart/PieChart"));
 
 const SalesCharts = () => {
     return (

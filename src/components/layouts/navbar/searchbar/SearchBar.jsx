@@ -38,10 +38,13 @@ const SearchBar = ({ isScrolled }) => {
                 placeholder="Search..."
                 className={clsx(
                     "py-3 pr-11 bg-transparent rounded-md w-0 opacity-0 cursor-pointer duration-200 outline-none",
-                    isActive && "cursor-text w-96 opacity-100 pr-0 pl-14"
+                    isActive &&
+                        "cursor-text !w-64 xs:!w-96 opacity-100 pr-0 pl-14"
                 )}
                 ref={inputRef}
                 onBlur={() => handleBlur()}
+                onInput={(e) => console.log(e.target.value)}
+                onFocus={() => setActive(true)}
             />
         </div>
     );

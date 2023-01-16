@@ -17,6 +17,10 @@ module.exports = {
                 'tertiary-t': '#5a567c',
                 'darker-t': '#868686'
             },
+            screens: {
+                'xs': '560px',
+                '2xs': '370px'
+            }
         },
     },
     plugins: [require('daisyui')],
