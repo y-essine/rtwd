@@ -1,4 +1,5 @@
 import useStore from "@/store/users";
+import Dropdown from "../../dropdown/Dropdown";
 
 const UserRow = ({ user }) => {
     const handleChange = (e) => {
@@ -50,12 +51,15 @@ const UserRow = ({ user }) => {
             </td>
             <td>{user.color}</td>
             <th>
-                <button
-                    className="btn btn-ghost btn-xs"
-                    onClick={() => deleteUser(user)}
-                >
-                    details
-                </button>
+                <Dropdown
+                    short
+                    removeUser={user}
+                    element={
+                        <div className="btn btn-ghost btn-xs cursor-pointer">
+                            <span className="text-xs font-bold">Details</span>
+                        </div>
+                    }
+                />
             </th>
         </tr>
     );

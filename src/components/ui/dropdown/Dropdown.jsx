@@ -3,8 +3,15 @@ import { Menu, Transition } from "@headlessui/react";
 import { ChevronDownIcon } from "@heroicons/react/20/solid";
 import clsx from "clsx";
 import "./dropdown.less";
+import useStore from "@/store/users";
 
-const Dropdown = ({ element, showChevron }) => {
+const Dropdown = ({ element, short, showChevron, removeUser }) => {
+    const removeUserFn = useStore((state) => state.removeUser);
+
+    const deleteUser = (user) => {
+        removeUserFn(user.id);
+    };
+
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
@@ -57,75 +64,104 @@ const Dropdown = ({ element, showChevron }) => {
                             )}
                         </Menu.Item>
                     </div>
+                    {!short && (
+                        <>
+                            <div className="py-1">
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            href="#"
+                                            className={clsx(
+                                                active
+                                                    ? "bg-accent"
+                                                    : "text-primary-t",
+                                                "block px-4 py-2 text-sm"
+                                            )}
+                                        >
+                                            Archive
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            href="#"
+                                            className={clsx(
+                                                active
+                                                    ? "bg-accent"
+                                                    : "text-primary-t",
+                                                "block px-4 py-2 text-sm"
+                                            )}
+                                        >
+                                            Move
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                            </div>
+                            <div className="py-1">
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            href="#"
+                                            className={clsx(
+                                                active
+                                                    ? "bg-accent"
+                                                    : "text-primary-t",
+                                                "block px-4 py-2 text-sm"
+                                            )}
+                                        >
+                                            Share
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                                <Menu.Item>
+                                    {({ active }) => (
+                                        <a
+                                            href="#"
+                                            className={clsx(
+                                                active
+                                                    ? "bg-accent"
+                                                    : "text-primary-t",
+                                                "block px-4 py-2 text-sm"
+                                            )}
+                                        >
+                                            Add to favorites
+                                        </a>
+                                    )}
+                                </Menu.Item>
+                            </div>
+                        </>
+                    )}
                     <div className="py-1">
                         <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    className={clsx(
-                                        active ? "bg-accent" : "text-primary-t",
-                                        "block px-4 py-2 text-sm"
-                                    )}
-                                >
-                                    Archive
-                                </a>
-                            )}
-                        </Menu.Item>
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    className={clsx(
-                                        active ? "bg-accent" : "text-primary-t",
-                                        "block px-4 py-2 text-sm"
-                                    )}
-                                >
-                                    Move
-                                </a>
-                            )}
-                        </Menu.Item>
-                    </div>
-                    <div className="py-1">
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    className={clsx(
-                                        active ? "bg-accent" : "text-primary-t",
-                                        "block px-4 py-2 text-sm"
-                                    )}
-                                >
-                                    Share
-                                </a>
-                            )}
-                        </Menu.Item>
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    className={clsx(
-                                        active ? "bg-accent" : "text-primary-t",
-                                        "block px-4 py-2 text-sm"
-                                    )}
-                                >
-                                    Add to favorites
-                                </a>
-                            )}
-                        </Menu.Item>
-                    </div>
-                    <div className="py-1">
-                        <Menu.Item>
-                            {({ active }) => (
-                                <a
-                                    href="#"
-                                    className={clsx(
-                                        active ? "bg-accent" : "text-primary-t",
-                                        "block px-4 py-2 text-sm"
-                                    )}
-                                >
-                                    Delete
-                                </a>
-                            )}
+                            {({ active }) =>
+                                removeUser ? (
+                                    <a
+                                        href="#"
+                                        className={clsx(
+                                            active
+                                                ? "bg-accent"
+                                                : "text-primary-t",
+                                            "block px-4 py-2 text-sm"
+                                        )}
+                                        onClick={() => deleteUser(removeUser)}
+                                    >
+                                        Delete
+                                    </a>
+                                ) : (
+                                    <a
+                                        href="#"
+                                        className={clsx(
+                                            active
+                                                ? "bg-accent"
+                                                : "text-primary-t",
+                                            "block px-4 py-2 text-sm"
+                                        )}
+                                    >
+                                        Delete
+                                    </a>
+                                )
+                            }
                         </Menu.Item>
                     </div>
                 </Menu.Items>
