@@ -44,7 +44,7 @@ const UserRow = ({ user }) => {
             <td>
                 <span className="text-sm">{user.job}</span>
                 <br />
-                <div className="badge bg-indigo-500/50 badge-sm p-3 mt-2">
+                <div className="badge bg-accent/50 badge-sm p-3 mt-2">
                     <span className="text-primary-t">{user.jobTitle}</span>
                 </div>
             </td>

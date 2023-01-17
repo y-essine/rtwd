@@ -1,7 +1,8 @@
-import SearchBar from "./searchbar/SearchBar";
-import Avatar from "@/components/ui/avatars/Avatar";
 import { useEffect, useState } from "react";
 import clsx from "clsx";
+import SearchBar from "./searchbar/SearchBar";
+import Avatar from "@/components/ui/avatars/Avatar";
+import Dropdown from "@/components/ui/dropdown/Dropdown";
 
 const Navbar = () => {
     const [isScrolled, setScrolled] = useState(false);
@@ -34,7 +35,9 @@ const Navbar = () => {
                     aria-expanded="true"
                     aria-haspopup="true"
                 >
-                    <Avatar className="h-12 w-12" hover />
+                    <Dropdown
+                        element={<Avatar className="h-12 w-12" hover />}
+                    />
                 </button>
                 {/* <div
                     className="absolute right-0 z-10 mt-2 w-56 origin-top-right rounded-md bg-secondary shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none"

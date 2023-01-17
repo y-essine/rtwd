@@ -23,9 +23,9 @@ const Users = () => {
             <h1 className="text-3xl font-bold">Users</h1>
             <div className="pt-6 w-full">
                 {isLoading ? (
-                    <LoadingSpinner />
+                    <LoadingSpinner className="mt-20" />
                 ) : (
-                    <Suspense fallback={<LoadingSpinner />}>
+                    <Suspense fallback={<LoadingSpinner className="mt-20" />}>
                         <UsersList users={users} />
                     </Suspense>
                 )}

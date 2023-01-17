@@ -8,7 +8,7 @@ import LoadingSpinner from "@/components/ui/loading/LoadingSpinner";
 const DashboardHome = () => {
     return (
         <div className="py-6">
-            <GradientBackground />
+            {/* <GradientBackground /> */}
             <h1 className="px-6 text-3xl font-bold">Dashboard</h1>
             <div className="mt-10 pl-6">
                 <div className="pr-6">

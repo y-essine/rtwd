@@ -1,14 +1,24 @@
 .table {
     th,
     td {
-        @apply bg-primary text-primary-t capitalize;
+        @apply bg-primary text-primary-t capitalize p-4;
+        button {
+            @apply hover:bg-secondary/80 text-primary-t p-2 uppercase text-xs rounded-md;
+        }
+    }
+
+    th:first-child {
+        @apply sticky left-0 z-10 h-full;
     }
 
     thead,
     tfoot {
         @apply border-white/5 text-darker-t;
         th {
-            @apply text-darker-t;
+            @apply text-darker-t uppercase text-xs text-start p-4;
+            &:first-child {
+                @apply flex justify-center items-center;
+            }
         }
     }
     thead {

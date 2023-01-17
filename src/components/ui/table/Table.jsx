@@ -59,7 +59,7 @@ const Table = ({ headers, items, users }) => {
         <div>
             <div className="flex justify-between items-center">
                 <TableSearch placeholder="Search..." onSearch={handleSearch} />
-                <AddButton />
+                {/* <AddButton /> */}
             </div>
             <div className="overflow-x-auto w-full overflow-hidden">
                 <table className="table w-full">
