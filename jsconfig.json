@@ -2,7 +2,11 @@
     "compilerOptions": {
         "baseUrl": ".",
         "paths": {
-            "@/*": ["src/*"]
+            "@/*": ["src/*"],
+            "@shared/*": ["src/shared/*"],
+            "@components/*": ["src/shared/components/*"],
+            "@users/*": ["src/features/users"],
+            "@products/*": ["src/features/products"]
         }
     },
     "exclude": ["node_modules"]

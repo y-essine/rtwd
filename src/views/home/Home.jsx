@@ -1,15 +1,51 @@
 import { Suspense, lazy } from "react";
-const CardsList = lazy(() => import("@/components/home/cards/CardsList"));
-const SalesCharts = lazy(() => import("@/components/home/sales/SalesCharts"));
-import GradientBackground from "@/components/layouts/background/GradientBackground";
-import Card from "@/components/ui/card/Card";
-import LoadingSpinner from "@/components/ui/loading/LoadingSpinner";
+const CardsList = lazy(() => import("@components/home/cards/CardsList"));
+const SalesCharts = lazy(() => import("@components/home/sales/SalesCharts"));
+import GradientBackground from "@components/layouts/background/GradientBackground";
+import Card from "@components/ui/card/Card";
+import LoadingSpinner from "@components/ui/loading/LoadingSpinner";
+import Modal from "@components/ui/modals/Modal";
+import Dropdown from "@components/ui/dropdown/Dropdown";
+import { Menu } from "@headlessui/react";
+import clsx from "clsx";
 
 const DashboardHome = () => {
     return (
         <div className="py-6">
             {/* <GradientBackground /> */}
             <h1 className="px-6 text-3xl font-bold">Dashboard</h1>
+            <div className="px-6 text-3xl font-bold mt-3">
+                <Modal
+                    element={
+                        <button className="p-3 bg-secondary/80 rounded-md hover:bg-secondary">
+                            Modal
+                        </button>
+                    }
+                >
+                    Test
+                </Modal>
+            </div>
+            <div className="px-6 mt-3">
+                <Dropdown
+                    element={
+                        <div className="text-3xl font-bold ">Dropdown</div>
+                    }
+                >
+                    <Menu.Item>
+                        {({ active }) => (
+                            <a
+                                href="#"
+                                className={clsx(
+                                    active ? "bg-accent" : "text-primary-t",
+                                    "block px-4 py-2 text-sm"
+                                )}
+                            >
+                                Edit
+                            </a>
+                        )}
+                    </Menu.Item>
+                </Dropdown>
+            </div>
             <div className="mt-10 pl-6">
                 <div className="pr-6">
                     <p className="text-sm font-semibold">
