@@ -1,16 +1,13 @@
 import { Fragment } from "react";
 import { Menu, Transition } from "@headlessui/react";
 import { ChevronDown } from "react-feather";
-import clsx from "clsx";
 import "./dropdown.less";
-import useStore from "@users/store";
-import Modal from "@components/ui/modals/Modal";
 
 const Dropdown = ({ element, children, showChevron }) => {
     return (
         <Menu as="div" className="relative inline-block text-left">
             <div>
-                <Menu.Button className="inline-flex w-full justify-center items-center rounded-md px-4 py-2 text-sm font-medium shadow-sm focus:outline-none">
+                <Menu.Button className="inline-flex justify-center items-center">
                     {element}
                     {showChevron && (
                         <ChevronDown

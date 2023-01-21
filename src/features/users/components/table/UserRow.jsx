@@ -1,8 +1,21 @@
-import Dropdown from "@components/ui/dropdown/Dropdown";
-import UserDropdown from "../dropdown/UserDropdown";
+import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
+import { useState } from "react";
 import { MoreVertical } from "react-feather";
+import UserDeleteModal from "../modals/UserDeleteModal";
 
 const UserRow = ({ user }) => {
+    const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+
+    const onEdit = () => {};
+    const onDelete = () => {
+        showDeleteModal();
+    };
+
+    const showDeleteModal = () => {
+        console.log("show delete modal for", user.name);
+        setDeleteModalOpen(true);
+    };
+
     return (
         <tr>
             <th>
@@ -41,7 +54,7 @@ const UserRow = ({ user }) => {
             </td>
             <td>{user.color}</td>
             <th>
-                <UserDropdown
+                <CrudDropdown
                     element={
                         <div className="btn btn-ghost btn-xs cursor-pointer">
                             <span className="text-xs font-bold">
@@ -49,12 +62,13 @@ const UserRow = ({ user }) => {
                             </span>
                         </div>
                     }
+                    onEditClick={onEdit}
+                    onDeleteClick={onDelete}
                 />
-                {/* <div className="btn btn-ghost btn-xs cursor-pointer">
-                    <span className="text-xs font-bold">
-                        <MoreVertical size={20} />
-                    </span>
-                </div> */}
+                <UserDeleteModal
+                    user={user}
+                    isOpen={isDeleteModalOpen}
+                ></UserDeleteModal>
             </th>
         </tr>
     );

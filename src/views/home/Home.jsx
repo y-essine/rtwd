@@ -6,8 +6,9 @@ import Card from "@components/ui/card/Card";
 import LoadingSpinner from "@components/ui/loading/LoadingSpinner";
 import Modal from "@components/ui/modals/Modal";
 import Dropdown from "@components/ui/dropdown/Dropdown";
-import { Menu } from "@headlessui/react";
+import { Menu, Dialog } from "@headlessui/react";
 import clsx from "clsx";
+import UserDeleteModal from "@users/components/modals/UserDeleteModal";
 
 const DashboardHome = () => {
     return (
@@ -15,20 +16,21 @@ const DashboardHome = () => {
             {/* <GradientBackground /> */}
             <h1 className="px-6 text-3xl font-bold">Dashboard</h1>
             <div className="px-6 text-3xl font-bold mt-3">
-                <Modal
+                <UserDeleteModal
+                    user={{ name: "Yassine Karoui" }}
                     element={
-                        <button className="p-3 bg-secondary/80 rounded-md hover:bg-secondary">
-                            Modal
-                        </button>
+                        <div className="p-3 bg-secondary/80 rounded-md hover:bg-secondary">
+                            Delete
+                        </div>
                     }
-                >
-                    Test
-                </Modal>
+                />
             </div>
             <div className="px-6 mt-3">
                 <Dropdown
                     element={
-                        <div className="text-3xl font-bold ">Dropdown</div>
+                        <div className="p-3 bg-secondary/80 rounded-md hover:bg-secondary">
+                            Dropdown
+                        </div>
                     }
                 >
                     <Menu.Item>

@@ -1,15 +1,8 @@
 import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 import Dropdown from "@/shared/components/ui/dropdown/Dropdown";
-import useStore from "@users/store";
 
-const UserDropdown = ({ element, user }) => {
-    const removeUserFn = useStore((state) => state.removeUser);
-
-    const deleteUser = (user) => {
-        removeUserFn(user.id);
-    };
-
+const CrudDropdown = ({ element, onEditClick, onDeleteClick }) => {
     return (
         <Dropdown element={element}>
             <Menu.Item>
@@ -20,6 +13,7 @@ const UserDropdown = ({ element, user }) => {
                             active ? "bg-accent" : "text-primary-t",
                             "block px-4 py-2 text-sm"
                         )}
+                        onClick={() => onEditClick()}
                     >
                         Edit
                     </a>
@@ -33,6 +27,7 @@ const UserDropdown = ({ element, user }) => {
                             active ? "bg-accent" : "text-primary-t",
                             "block px-4 py-2 text-sm"
                         )}
+                        onClick={() => onDeleteClick()}
                     >
                         Delete
                     </a>
@@ -46,4 +41,4 @@ const UserDropdown = ({ element, user }) => {
 //     user: PropTypes.element.isRequired,
 // };
 
-export default UserDropdown;
+export default CrudDropdown;
