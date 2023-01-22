@@ -2,6 +2,7 @@ import { useState } from "react";
 import { MoreVertical } from "react-feather";
 import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
 import UserDeleteModal from "../modals/UserDeleteModal";
+import UserEditModal from "../modals/UserEditModal";
 import useStore from "@users/store";
 
 const UserRow = ({ user }) => {
@@ -72,6 +73,12 @@ const UserRow = ({ user }) => {
                     onClose={() => setDeleteModalOpen(false)}
                     onDelete={(u) => deleteUser(u)}
                 ></UserDeleteModal>
+                <UserEditModal
+                    user={user}
+                    openNow={isEditModalOpen}
+                    onClose={() => setEditModalOpen(false)}
+                    onEdit={(u) => editUser(u)}
+                ></UserEditModal>
             </th>
         </tr>
     );
