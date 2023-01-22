@@ -5,7 +5,7 @@ const Modal = ({ element, children, onClose, openNow }) => {
     let [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
-        if (openNow) setIsOpen(true);
+        setIsOpen(openNow);
     }, [openNow]);
 
     const closeModal = () => {
@@ -53,31 +53,7 @@ const Modal = ({ element, children, onClose, openNow }) => {
                                 leaveTo="opacity-0 scale-95"
                             >
                                 <Dialog.Panel className="w-full max-w-md transform overflow-hidden rounded-2xl bg-secondary p-6 text-left align-middle shadow-xl transition-all">
-                                    {/* <Dialog.Title
-                                        as="h3"
-                                        className="text-lg font-bold leading-6 text-accent"
-                                    >
-                                        {title}
-                                    </Dialog.Title> */}
                                     {children}
-                                    {/* <div className="mt-2">
-                                        <p className="text-sm text-darker-t">
-                                            Your payment has been successfully
-                                            submitted. We’ve sent you an email
-                                            with all of the details of your
-                                            order.
-                                        </p>
-                                    </div>
-
-                                    <div className="mt-4">
-                                        <button
-                                            type="button"
-                                            className="inline-flex justify-center rounded-md border border-transparent bg-lighter/80 px-4 py-2 text-sm font-medium text-primary-t hover:bg-lighter focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                                            onClick={closeModal}
-                                        >
-                                            Got it, thanks!
-                                        </button>
-                                    </div> */}
                                 </Dialog.Panel>
                             </Transition.Child>
                         </div>

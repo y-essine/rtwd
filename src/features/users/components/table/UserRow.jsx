@@ -1,18 +1,21 @@
-import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
 import { useState } from "react";
 import { MoreVertical } from "react-feather";
+import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
 import UserDeleteModal from "../modals/UserDeleteModal";
+import useStore from "@users/store";
 
 const UserRow = ({ user }) => {
     const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
+    const [isEditModalOpen, setEditModalOpen] = useState(true);
 
-    const onEdit = () => {};
-    const onDelete = () => {
-        showDeleteModal();
+    const removeUser = useStore((state) => state.removeUser);
+
+    const deleteUser = (user) => {
+        removeUser(user.id);
     };
 
-    const showDeleteModal = () => {
-        setDeleteModalOpen(true);
+    const editUser = (user) => {
+        console.log("edit user", user.name);
     };
 
     return (
@@ -22,7 +25,6 @@ const UserRow = ({ user }) => {
                     <input
                         type="checkbox"
                         className="checkbox checkbox-select"
-                        // id={"checkbox-" + u.id}
                         onChange={(e) => handleChange(e)}
                     />
                 </label>
@@ -61,13 +63,14 @@ const UserRow = ({ user }) => {
                             </span>
                         </div>
                     }
-                    onEditClick={onEdit}
-                    onDeleteClick={onDelete}
+                    onEditClick={() => setEditModalOpen(true)}
+                    onDeleteClick={() => setDeleteModalOpen(true)}
                 />
                 <UserDeleteModal
                     user={user}
                     openNow={isDeleteModalOpen}
                     onClose={() => setDeleteModalOpen(false)}
+                    onDelete={(u) => deleteUser(u)}
                 ></UserDeleteModal>
             </th>
         </tr>

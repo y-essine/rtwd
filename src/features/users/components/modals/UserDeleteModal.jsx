@@ -2,6 +2,11 @@ import { Dialog } from "@headlessui/react";
 import Modal from "@/shared/components/ui/modals/Modal";
 
 const UserDeleteModal = ({ element, user, onDelete, openNow, onClose }) => {
+    const onDeleteButton = () => {
+        onDelete(user);
+        onClose();
+    };
+
     return (
         <Modal element={element} openNow={openNow} onClose={() => onClose()}>
             <Dialog.Title
@@ -23,7 +28,7 @@ const UserDeleteModal = ({ element, user, onDelete, openNow, onClose }) => {
                 <button
                     type="button"
                     className="inline-flex justify-center rounded-md border border-transparent bg-lighter/80 px-4 py-2 text-sm font-medium text-primary-t hover:bg-lighter focus:outline-none focus-visible:ring-2 focus-visible:ring-blue-500 focus-visible:ring-offset-2"
-                    // onClick={closeModal}
+                    onClick={() => onDeleteButton()}
                 >
                     Got it, delete!
                 </button>
