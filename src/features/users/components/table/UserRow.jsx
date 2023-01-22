@@ -12,7 +12,6 @@ const UserRow = ({ user }) => {
     };
 
     const showDeleteModal = () => {
-        console.log("show delete modal for", user.name);
         setDeleteModalOpen(true);
     };
 
@@ -67,7 +66,8 @@ const UserRow = ({ user }) => {
                 />
                 <UserDeleteModal
                     user={user}
-                    isOpen={isDeleteModalOpen}
+                    openNow={isDeleteModalOpen}
+                    onClose={() => setDeleteModalOpen(false)}
                 ></UserDeleteModal>
             </th>
         </tr>

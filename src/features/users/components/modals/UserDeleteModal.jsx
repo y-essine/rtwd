@@ -1,9 +1,9 @@
 import { Dialog } from "@headlessui/react";
 import Modal from "@/shared/components/ui/modals/Modal";
 
-const UserDeleteModal = ({ element, user, onDelete, isOpen }) => {
+const UserDeleteModal = ({ element, user, onDelete, openNow, onClose }) => {
     return (
-        <Modal element={element}>
+        <Modal element={element} openNow={openNow} onClose={() => onClose()}>
             <Dialog.Title
                 as="h3"
                 className="text-lg font-bold leading-6 text-red-400"
