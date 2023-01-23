@@ -1,16 +1,10 @@
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 
-// import Main from "@/views/Main";
-// import Home from "@/views/Home";
-// import Explore from "@/views/Explore";
-// import Settings from "@/views/Settings";
-
-import Dashboard from "@/views/Dashboard";
+import Dashboard from "@components/Dashboard";
 import Home from "@home/Home";
+import Profile from "@user/Profile";
+import Settings from "@settings/Settings";
 import Users from "@users/Users";
-import Profile from "@/views/profile/Profile";
-import Settings from "@/views/settings/Settings";
-import Products from "@/views/products/Products";
 
 function App() {
     return (
@@ -21,7 +15,14 @@ function App() {
                     <Route path="profile" element={<Profile />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="users" element={<Users />} />
-                    <Route path="products" element={<Products />} />
+                    <Route
+                        path="products"
+                        element={
+                            <h1 className="p-6 text-3xl font-extrabold">
+                                Products
+                            </h1>
+                        }
+                    />
                 </Route>
                 <Route path="login" element={<h1>Login</h1>} />
                 <Route path="register" element={<h1>Register</h1>} />

@@ -31,7 +31,7 @@ const SalesCharts = () => {
                 </div>
             </div>
             {/* <div className="w-1 hidden lg:visible"></div> */}
-            <div className="w-full lg:w-[40%] lg:mt-0 mt-5 lg:mr-0 mr-5">
+            <div className="w-full lg:w-[40%] lg:mt-0 lg:mr-0 mr-5">
                 <div className="mt-5">
                     <Card className="bg-secondary !w-full p-8">
                         <h1 className="text-2xl font-semibold">Profit</h1>

@@ -6,6 +6,8 @@
             // "@shared/*": ["src/shared/*"],
             "@components/*": ["src/shared/components/*"],
             "@home/*": ["src/features/home/*"],
+            "@user/*": ["src/features/user"],
+            "@settings/*": ["src/features/settings"],
             "@users/*": ["src/features/users"],
             "@products/*": ["src/features/products"]
         }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import SearchBar from "./searchbar/SearchBar";
-import UserDropdownAvatar from "./user/UserDropdown";
+import UserDropdownAvatar from "@user/components/UserDropdown";
 
 const Navbar = () => {
     const [isScrolled, setScrolled] = useState(false);
