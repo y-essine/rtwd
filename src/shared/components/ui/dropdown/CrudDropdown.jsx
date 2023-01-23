@@ -8,10 +8,9 @@ const CrudDropdown = ({ element, onEditClick, onDeleteClick }) => {
             <Menu.Item>
                 {({ active }) => (
                     <a
-                        href="#"
                         className={clsx(
                             active ? "bg-accent" : "text-primary-t",
-                            "block px-4 py-2 text-sm"
+                            "block px-4 py-2 text-sm cursor-pointer"
                         )}
                         onClick={() => onEditClick()}
                     >
@@ -22,10 +21,9 @@ const CrudDropdown = ({ element, onEditClick, onDeleteClick }) => {
             <Menu.Item>
                 {({ active }) => (
                     <a
-                        href="#"
                         className={clsx(
                             active ? "bg-accent" : "text-primary-t",
-                            "block px-4 py-2 text-sm"
+                            "block px-4 py-2 text-sm cursor-pointer"
                         )}
                         onClick={() => onDeleteClick()}
                     >
@@ -36,9 +34,5 @@ const CrudDropdown = ({ element, onEditClick, onDeleteClick }) => {
         </Dropdown>
     );
 };
-
-// UserDropdown.proptypes = {
-//     user: PropTypes.element.isRequired,
-// };
 
 export default CrudDropdown;

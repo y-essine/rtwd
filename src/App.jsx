@@ -6,8 +6,8 @@ import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 // import Settings from "@/views/Settings";
 
 import Dashboard from "@/views/Dashboard";
-import Home from "@/views/home/Home";
-import Users from "@users/components/Users";
+import Home from "@home/Home";
+import Users from "@users/Users";
 import Profile from "@/views/profile/Profile";
 import Settings from "@/views/settings/Settings";
 import Products from "@/views/products/Products";
@@ -16,20 +16,15 @@ function App() {
     return (
         <BrowserRouter>
             <Routes>
-                <Route exact path="/" element={<Navigate to="/dashboard" />}>
-                    {/* <Route path="" element={<Home />} />
-                        <Route path="explore" element={<Explore />} />
-                        <Route path="settings" element={<Settings />} /> */}
-                </Route>
-                <Route path="login" element={<h1>Login</h1>} />
-                <Route path="register" element={<h1>Register</h1>} />
-                <Route exact path="/dashboard" element={<Dashboard />}>
+                <Route exact path="/" element={<Dashboard />}>
                     <Route path="" element={<Home />} />
                     <Route path="profile" element={<Profile />} />
                     <Route path="settings" element={<Settings />} />
                     <Route path="users" element={<Users />} />
                     <Route path="products" element={<Products />} />
                 </Route>
+                <Route path="login" element={<h1>Login</h1>} />
+                <Route path="register" element={<h1>Register</h1>} />
 
                 <Route
                     path="*"

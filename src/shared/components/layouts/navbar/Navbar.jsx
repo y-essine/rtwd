@@ -1,8 +1,7 @@
 import { useEffect, useState } from "react";
 import clsx from "clsx";
 import SearchBar from "./searchbar/SearchBar";
-import Avatar from "@components/ui/avatars/Avatar";
-import Dropdown from "@components/ui/dropdown/Dropdown";
+import UserDropdownAvatar from "./user/UserDropdown";
 
 const Navbar = () => {
     const [isScrolled, setScrolled] = useState(false);
@@ -29,7 +28,7 @@ const Navbar = () => {
                 <SearchBar isScrolled={isScrolled} />
             </div>
             <div className="relative flex items-center text-left">
-                <Dropdown element={<Avatar className="h-12 w-12" hover />} />
+                <UserDropdownAvatar />
             </div>
         </div>
     );

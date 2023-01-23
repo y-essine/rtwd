@@ -7,7 +7,7 @@ import useStore from "@users/store";
 
 const UserRow = ({ user }) => {
     const [isDeleteModalOpen, setDeleteModalOpen] = useState(false);
-    const [isEditModalOpen, setEditModalOpen] = useState(true);
+    const [isEditModalOpen, setEditModalOpen] = useState(false);
 
     const removeUser = useStore((state) => state.removeUser);
 
@@ -37,7 +37,6 @@ const UserRow = ({ user }) => {
                             <img
                                 src={user.avatar || "/git.jpg"}
                                 alt="user avatar"
-                                className="hover:scale-110"
                             />
                         </div>
                     </div>

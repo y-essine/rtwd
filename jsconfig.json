@@ -3,8 +3,9 @@
         "baseUrl": ".",
         "paths": {
             "@/*": ["src/*"],
-            "@shared/*": ["src/shared/*"],
+            // "@shared/*": ["src/shared/*"],
             "@components/*": ["src/shared/components/*"],
+            "@home/*": ["src/features/home/*"],
             "@users/*": ["src/features/users"],
             "@products/*": ["src/features/products"]
         }

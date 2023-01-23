@@ -12,7 +12,7 @@ const SidebarItem = ({ title, path, icon }) => {
 
     useEffect(() => {
         const pathname = location.pathname;
-        if (pathname === "/dashboard" + path) {
+        if (pathname === path) {
             setActive(true);
             setTitle(title);
         } else {
@@ -22,7 +22,7 @@ const SidebarItem = ({ title, path, icon }) => {
 
     return (
         <Link
-            to={"/dashboard" + path}
+            to={path}
             className={clsx(
                 "flex justify-center lg:justify-start lg:pl-8 py-3 xs:py-4 hover:bg-secondary/50 cursor-pointer rounded-md select-none duration-200",
                 isActive && "!bg-secondary"
