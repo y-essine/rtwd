@@ -1,6 +1,6 @@
 # React Dashboard
 
-A react dashboard app using tailwindcss and headlessui for modals, dropdowns...
+A react dashboard app using tailwindcss and headlessui for modals, dropdowns and zustand for state management.
 
 [![CodeFactor](https://www.codefactor.io/repository/github/y-essine/react-tailwind-dashboard/badge)](https://www.codefactor.io/repository/github/y-essine/react-tailwind-dashboard)
 
