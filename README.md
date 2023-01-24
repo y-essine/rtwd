@@ -10,7 +10,7 @@ Run this command
 git clone https://github.com/y-essine/react-tailwind-dashboard && cd react-tailwind-dashboard/ && npm i && code .;
 ```
 
-## Running the project in development mode
+## Running it
 ```
 npm run dev
 ```
