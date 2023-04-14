@@ -1,7 +1,7 @@
 const AddButton = ({ onAdd }) => {
     return (
         <div
-            className="btn bg-secondary/50 hover:bg-secondary text-darker-t"
+            className="btn bg-emerald-400/80 hover:bg-emerald-400/60 px-4 py-2 rounded-md cursor-pointer"
             onClick={onAdd}
         >
             +

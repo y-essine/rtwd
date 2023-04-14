@@ -4,8 +4,9 @@ import "./table.less";
 import UserRow from "@users/components/table/UserRow";
 import TableSearch from "./TableSearch";
 import AddButton from "./actions/AddButton";
+import CourseRow from "@/features/courses/components/table/CourseRow";
 
-const Table = ({ headers, items, users }) => {
+const Table = ({ headers, items, users, courses, noAdd }) => {
     const [isAllChecked, setAllChecked] = useState(false);
     const [search, setSearch] = useState("");
 
@@ -59,7 +60,7 @@ const Table = ({ headers, items, users }) => {
         <div>
             <div className="flex justify-between items-center">
                 <TableSearch placeholder="Search..." onSearch={handleSearch} />
-                {/* <AddButton /> */}
+                {!noAdd && <AddButton />}
             </div>
             <div className="overflow-x-auto w-full overflow-hidden">
                 <table className="table w-full">
@@ -70,11 +71,14 @@ const Table = ({ headers, items, users }) => {
                         handleCheckbox={selectAll}
                     />
                     <tbody>
-                        {/* <!-- row 1 --> */}
-                        {getItems().map(
-                            (item, index) =>
-                                users && <UserRow key={index} user={item} />
-                        )}
+                        {users &&
+                            getItems().map((item, index) => (
+                                <UserRow key={index} user={item} />
+                            ))}
+                        {courses &&
+                            getItems().map((item, index) => (
+                                <CourseRow key={index} course={item} />
+                            ))}
                     </tbody>
                     {/* <!-- foot --> */}
                     <tfoot>

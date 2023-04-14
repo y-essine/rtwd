@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { MoreVertical } from "react-feather";
+import { MoreVertical, CheckCircle, XOctagon, UserCheck } from "react-feather";
 import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
 import UserDeleteModal from "../modals/UserDeleteModal";
 import UserEditModal from "../modals/UserEditModal";
@@ -10,6 +10,9 @@ const UserRow = ({ user }) => {
     const [isEditModalOpen, setEditModalOpen] = useState(false);
 
     const removeUser = useStore((state) => state.removeUser);
+
+    const banUser = useStore((state) => state.banUser);
+    const unbanUser = useStore((state) => state.unbanUser);
 
     const deleteUser = (user) => {
         removeUser(user.id);
@@ -42,19 +45,56 @@ const UserRow = ({ user }) => {
                     </div>
                     <div>
                         <div className="font-bold">{user.name}</div>
-                        <div className="text-sm opacity-50">{user.country}</div>
+                        <div className="text-sm opacity-50 lowercase">
+                            {user.email}
+                        </div>
                     </div>
                 </div>
             </td>
             <td>
-                <span className="text-sm">{user.job}</span>
-                <br />
-                <div className="badge bg-accent/50 badge-sm p-3 mt-2">
-                    <span className="text-primary-t">{user.jobTitle}</span>
+                <div className="badge bg-accent/50 badge-sm p-3 mb-2">
+                    <span className="text-primary-t">{user.role}</span>
+                </div>
+                {user.verified && (
+                    <>
+                        <div className="flex gap-1 items-center text-emerald-300">
+                            <CheckCircle size={20} />
+                            <span className="text-xs">Verified</span>
+                        </div>
+                    </>
+                )}
+            </td>
+            <td>
+                <div className="flex gap-2 items-center">
+                    <div className="text-xs text-gray-500">
+                        {/* format createdAt */}
+                        {user.createdAt.slice(0, 10)}
+                    </div>
                 </div>
             </td>
-            <td>{user.color}</td>
-            <th>
+            <td>
+                {user.banned ? (
+                    <div
+                        className="text-emerald-400 cursor-pointer hover:text-emerald-500"
+                        onClick={() => {
+                            unbanUser(user);
+                        }}
+                    >
+                        <UserCheck size={20} />
+                    </div>
+                ) : (
+                    <div
+                        className="text-red-400 cursor-pointer hover:text-red-500"
+                        onClick={() => {
+                            banUser(user);
+                        }}
+                    >
+                        <XOctagon size={20} />
+                    </div>
+                )}
+            </td>
+
+            {/* <th>
                 <CrudDropdown
                     element={
                         <div className="btn btn-ghost btn-xs cursor-pointer">
@@ -78,7 +118,7 @@ const UserRow = ({ user }) => {
                     onClose={() => setEditModalOpen(false)}
                     onEdit={(u) => editUser(u)}
                 ></UserEditModal>
-            </th>
+            </th> */}
         </tr>
     );
 };

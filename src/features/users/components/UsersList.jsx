@@ -4,8 +4,9 @@ const UsersList = ({ users }) => {
     return (
         <Table
             users
-            headers={["user", "job", "favorite color"]}
+            headers={["user", "role & status", "date joined", "ban"]}
             items={users}
+            noAdd
         />
     );
 };

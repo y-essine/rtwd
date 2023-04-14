@@ -16,7 +16,8 @@ export default defineConfig({
             "@user": path.resolve(__dirname, "src/features/user"),
             "@settings": path.resolve(__dirname, "src/features/settings"),
             "@users": path.resolve(__dirname, "src/features/users"),
-            "@products": path.resolve(__dirname, "src/features/products")
+            "@products": path.resolve(__dirname, "src/features/products"),
+            "@courses": path.resolve(__dirname, "src/features/courses"),
         },
     },
 });

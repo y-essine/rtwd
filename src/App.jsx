@@ -5,6 +5,7 @@ import Home from "@home/Home";
 import Profile from "@user/Profile";
 import Settings from "@settings/Settings";
 import Users from "@users/Users";
+import Courses from "@courses/Courses";
 
 function App() {
     return (
@@ -23,6 +24,7 @@ function App() {
                             </h1>
                         }
                     />
+                    <Route path="courses" element={<Courses />} />
                 </Route>
                 <Route path="login" element={<h1>Login</h1>} />
                 <Route path="register" element={<h1>Register</h1>} />

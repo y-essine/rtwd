@@ -1,4 +1,4 @@
-import { Home, Settings, User, Users, Tag } from "react-feather";
+import { Home, Settings, User, Users, Tag, Trello } from "react-feather";
 import { Link } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
 
@@ -29,6 +29,11 @@ const Sidebar = () => {
             path: "/products",
             icon: <Tag size={26} />,
         },
+        courses: {
+            title: "Courses",
+            path: "/courses",
+            icon: <Trello size={26} />,
+        },
     };
 
     return (
@@ -46,7 +51,7 @@ const Sidebar = () => {
                     <div className="pt-3 space-y-2">
                         <SidebarItem {...items.home} />
                         <SidebarItem {...items.users} />
-                        <SidebarItem {...items.products} />
+                        <SidebarItem {...items.courses} />
                     </div>
                 </div>
                 {/* <div className="pb-3 w-full space-y-2">
@@ -58,7 +63,7 @@ const Sidebar = () => {
                 <div className="flex items-center justify-center gap-10 font-bold h-full">
                     <SidebarItem {...items.home} />
                     <SidebarItem {...items.users} />
-                    <SidebarItem {...items.products} />
+                    <SidebarItem {...items.courses} />
                 </div>
             </div>
         </>

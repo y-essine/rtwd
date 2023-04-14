@@ -9,7 +9,8 @@
             "@user/*": ["src/features/user"],
             "@settings/*": ["src/features/settings"],
             "@users/*": ["src/features/users"],
-            "@products/*": ["src/features/products"]
+            "@products/*": ["src/features/products"],
+            "@courses/*": ["src/features/courses"]
         }
     },
     "exclude": ["node_modules"]

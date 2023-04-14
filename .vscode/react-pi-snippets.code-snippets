@@ -19,7 +19,7 @@
         "scope": "javascriptreact",
         "prefix": "rpicc",
         "body": [
-            "const ${1:componentName} = () => {",
+            "const ${1:Component} = () => {",
             "    return (",
             "        <div>",
             "            $2",
@@ -27,7 +27,7 @@
             "    )",
             "}",
             "",
-            "export default ${1:componentName};"
+            "export default ${1:Component};"
         ],
         "description": "Creates a 'const component = () => {}' react component"
     }
