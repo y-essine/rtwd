@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MoreVertical, Users } from "react-feather";
-import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
+import RowDropdown from "@/shared/components/ui/dropdown/RowDropdown";
 import useStore from "@courses/store";
 
 const CourseRow = ({ course }) => {
@@ -57,13 +57,12 @@ const CourseRow = ({ course }) => {
             <td>
                 <div className="flex gap-2 items-center">
                     <div className="text-xs text-gray-500">
-                        {/* format createdAt */}
                         {course.createdAt.slice(0, 10)}
                     </div>
                 </div>
             </td>
             <th>
-                <CrudDropdown
+                <RowDropdown
                     element={
                         <div className="btn btn-ghost btn-xs cursor-pointer">
                             <span className="text-xs font-bold">

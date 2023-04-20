@@ -2,7 +2,7 @@ import { Menu } from "@headlessui/react";
 import clsx from "clsx";
 import Dropdown from "@/shared/components/ui/dropdown/Dropdown";
 
-const CrudDropdown = ({ element, onAddClick, onDeleteClick }) => {
+const RowDropdown = ({ element, onEditClick, onDeleteClick }) => {
     return (
         <Dropdown element={element}>
             <Menu.Item>
@@ -12,9 +12,9 @@ const CrudDropdown = ({ element, onAddClick, onDeleteClick }) => {
                             active ? "bg-accent" : "text-primary-t",
                             "block px-4 py-2 text-sm cursor-pointer"
                         )}
-                        onClick={() => onAddClick()}
+                        onClick={() => onEditClick()}
                     >
-                        Add
+                        Edit
                     </a>
                 )}
             </Menu.Item>
@@ -27,7 +27,7 @@ const CrudDropdown = ({ element, onAddClick, onDeleteClick }) => {
                         )}
                         onClick={() => onDeleteClick()}
                     >
-                        Delete selected
+                        Delete
                     </a>
                 )}
             </Menu.Item>
@@ -35,4 +35,4 @@ const CrudDropdown = ({ element, onAddClick, onDeleteClick }) => {
     );
 };
 
-export default CrudDropdown;
+export default RowDropdown;

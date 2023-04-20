@@ -3,10 +3,14 @@ import TableHeader from "./TableHeader";
 import "./table.less";
 import UserRow from "@users/components/table/UserRow";
 import TableSearch from "./TableSearch";
-import AddButton from "./actions/AddButton";
 import CourseRow from "@/features/courses/components/table/CourseRow";
+import CrudDropdown from "../dropdown/CrudDropdown";
+import { MoreVertical } from "react-feather";
+import { useNavigate } from "react-router-dom";
 
 const Table = ({ headers, items, users, courses, noAdd }) => {
+    const navigate = useNavigate();
+
     const [isAllChecked, setAllChecked] = useState(false);
     const [search, setSearch] = useState("");
 
@@ -60,7 +64,21 @@ const Table = ({ headers, items, users, courses, noAdd }) => {
         <div>
             <div className="flex justify-between items-center">
                 <TableSearch placeholder="Search..." onSearch={handleSearch} />
-                {!noAdd && <AddButton />}
+                {!noAdd && (
+                    <CrudDropdown
+                        element={
+                            <div className="btn btn-ghost btn-xs cursor-pointer">
+                                <span className="text-xs font-bold">
+                                    <MoreVertical size={20} />
+                                </span>
+                            </div>
+                        }
+                        onAddClick={() => {
+                            navigate("./add");
+                        }}
+                        onDeleteClick={() => {}}
+                    />
+                )}
             </div>
             <div className="overflow-x-auto w-full overflow-hidden">
                 <table className="table w-full">

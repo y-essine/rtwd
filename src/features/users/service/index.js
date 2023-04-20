@@ -1,10 +1,10 @@
 import { API, mockApi } from "@services/api";
 
 const userService = {
-    getAll: () => API.get("/users/all"),
-    get: (id) => API.get(`/users/${id}`),
-    ban: (id) => API.put(`/users/ban/${id}`),
-    unban: (id) => API.put(`/users/unban/${id}`),
+    getAll: () => API.get("/user/getAllUsers"),
+    get: (id) => API.get(`/user/${id}`),
+    ban: (id) => API.put(`/user/ban/${id}`),
+    unban: (id) => API.put(`/user/unban/${id}`),
 };
 
 export default userService;

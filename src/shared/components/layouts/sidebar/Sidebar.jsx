@@ -1,4 +1,13 @@
-import { Home, Settings, User, Users, Tag, Trello } from "react-feather";
+import {
+    Home,
+    Settings,
+    User,
+    Users,
+    Tag,
+    Trello,
+    Briefcase,
+    Clipboard,
+} from "react-feather";
 import { Link } from "react-router-dom";
 import SidebarItem from "./SidebarItem";
 
@@ -34,6 +43,21 @@ const Sidebar = () => {
             path: "/courses",
             icon: <Trello size={26} />,
         },
+        jobs: {
+            title: "Jobs",
+            path: "/jobs",
+            icon: <Briefcase size={26} />,
+        },
+        contracts: {
+            title: "Contracts",
+            path: "/contracts",
+            icon: <Trello size={26} />,
+        },
+        assessments: {
+            title: "Assessments",
+            path: "/assessments",
+            icon: <Clipboard size={26} />,
+        },
     };
 
     return (
@@ -52,6 +76,9 @@ const Sidebar = () => {
                         <SidebarItem {...items.home} />
                         <SidebarItem {...items.users} />
                         <SidebarItem {...items.courses} />
+                        <SidebarItem {...items.jobs} />
+                        <SidebarItem {...items.contracts} />
+                        <SidebarItem {...items.assessments} />
                     </div>
                 </div>
                 {/* <div className="pb-3 w-full space-y-2">
@@ -60,10 +87,13 @@ const Sidebar = () => {
                 </div> */}
             </div>
             <div className="xs:hidden fixed bottom-0 h-16 w-full bg-primary/80 backdrop-blur-md z-20">
-                <div className="flex items-center justify-center gap-10 font-bold h-full">
+                <div className="flex items-center justify-center gap-5 font-bold h-full">
                     <SidebarItem {...items.home} />
                     <SidebarItem {...items.users} />
                     <SidebarItem {...items.courses} />
+                    <SidebarItem {...items.jobs} />
+                    <SidebarItem {...items.contracts} />
+                    <SidebarItem {...items.assessments} />
                 </div>
             </div>
         </>

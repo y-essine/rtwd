@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { MoreVertical, CheckCircle, XOctagon, UserCheck } from "react-feather";
-import CrudDropdown from "@/shared/components/ui/dropdown/CrudDropdown";
+import RowDropdown from "@/shared/components/ui/dropdown/RowDropdown";
 import UserDeleteModal from "../modals/UserDeleteModal";
 import UserEditModal from "../modals/UserEditModal";
 import useStore from "@users/store";
@@ -95,7 +95,7 @@ const UserRow = ({ user }) => {
             </td>
 
             {/* <th>
-                <CrudDropdown
+                <RowDropdown
                     element={
                         <div className="btn btn-ghost btn-xs cursor-pointer">
                             <span className="text-xs font-bold">
